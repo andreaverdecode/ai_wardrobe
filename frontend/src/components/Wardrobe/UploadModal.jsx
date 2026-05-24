@@ -2,6 +2,7 @@ import { useState, useCallback, useEffect, useRef } from 'react'
 import { useDropzone } from 'react-dropzone'
 import { X, Upload, ImageIcon, CheckCircle, AlertCircle, Loader2, Camera } from 'lucide-react'
 import clsx from 'clsx'
+import { useScrollLock } from '../../hooks/useScrollLock.js'
 
 const MAX_SIZE = 10 * 1024 * 1024 // 10 MB
 
@@ -63,6 +64,7 @@ export default function UploadModal({ open, onClose, onUpload, isUploading, uplo
   const [name, setName]     = useState('')
   const [error, setError]   = useState('')
   const cameraInputRef      = useRef(null)
+  useScrollLock(open)
 
   // Reset when modal opens/closes
   useEffect(() => {

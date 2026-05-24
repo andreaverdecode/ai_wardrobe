@@ -15,6 +15,15 @@
   --sidebar-width:     240px;
   --header-height:     60px;
   --radius-card:       12px;
+
+  /* Safe area insets (non-zero solo con viewport-fit=cover su device con notch/home indicator) */
+  --safe-top:    env(safe-area-inset-top,    0px);
+  --safe-bottom: env(safe-area-inset-bottom, 0px);
+  --safe-left:   env(safe-area-inset-left,   0px);
+  --safe-right:  env(safe-area-inset-right,  0px);
+
+  /* Altezza header reale = header fisso + area status bar su iOS notched */
+  --header-h: calc(var(--header-height) + var(--safe-top));
 }
 
 /* ─── Base ───────────────────────────────────────────────────────── */
@@ -44,6 +53,14 @@ img {
 }
 
 /* ─── Scrollbar ──────────────────────────────────────────────────── */
+.scrollbar-none {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.scrollbar-none::-webkit-scrollbar {
+  display: none;
+}
+
 ::-webkit-scrollbar {
   width: 6px;
   height: 6px;
@@ -110,18 +127,18 @@ img {
 
 /* ─── Page layout helpers ────────────────────────────────────────── */
 .page-container {
-  min-height: calc(100vh - var(--header-height));
-  padding: 1.5rem 1rem;
+  min-height: calc(100vh - var(--header-h));
+  padding: 1.5rem calc(1rem + var(--safe-right)) calc(1.5rem + var(--safe-bottom)) calc(1rem + var(--safe-left));
 }
 
 @media (min-width: 768px) {
   .page-container {
-    padding: 2rem 1.5rem;
+    padding: 2rem calc(1.5rem + var(--safe-right)) calc(2rem + var(--safe-bottom)) calc(1.5rem + var(--safe-left));
   }
 }
 
 @media (min-width: 1024px) {
   .page-container {
-    padding: 2.5rem 2rem;
+    padding: 2.5rem calc(2rem + var(--safe-right)) calc(2.5rem + var(--safe-bottom)) calc(2rem + var(--safe-left));
   }
 }

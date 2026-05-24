@@ -2,24 +2,27 @@ import { useState } from 'react'
 import { NavLink, useLocation } from 'react-router-dom'
 import { Menu, X, Shirt } from 'lucide-react'
 import clsx from 'clsx'
+import { useScrollLock } from '../../hooks/useScrollLock.js'
 
 const NAV_LINKS = [
-  { to: '/',       label: 'Armadio' },
-  { to: '/outfit', label: 'Outfit'  },
-  { to: '/tryon',  label: 'Try-On'  },
+  { to: '/',      label: 'Armadio' },
+  { to: '/tryon', label: 'Try-On'  },
 ]
 
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false)
   const location = useLocation()
+  useScrollLock(menuOpen)
 
   return (
     <>
       <header
         className="fixed top-0 left-0 right-0 z-40 bg-white border-b border-brand-200"
-        style={{ height: 'var(--header-height)' }}
+        style={{ height: 'var(--header-h)', paddingTop: 'var(--safe-top)' }}
       >
-        <div className="flex items-center justify-between h-full px-4 md:px-6">
+        <div className="flex items-center justify-between h-full px-4 md:px-6"
+          style={{ paddingLeft: 'max(1rem, var(--safe-left))', paddingRight: 'max(1rem, var(--safe-right))' }}
+        >
           {/* Logo */}
           <NavLink
             to="/"

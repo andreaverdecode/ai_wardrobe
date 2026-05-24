@@ -5,7 +5,6 @@ import { Toaster } from 'react-hot-toast'
 import Header from './components/Layout/Header.jsx'
 import Sidebar from './components/Layout/Sidebar.jsx'
 import WardrobePage from './pages/WardrobePage.jsx'
-import OutfitsPage from './pages/OutfitsPage.jsx'
 import TryOnPage from './pages/TryOnPage.jsx'
 
 const queryClient = new QueryClient({
@@ -24,7 +23,7 @@ export default function App() {
       <BrowserRouter>
         <div className="flex flex-col min-h-screen bg-brand-50">
           <Header />
-          <div className="flex flex-1" style={{ paddingTop: 'var(--header-height)' }}>
+          <div className="flex flex-1" style={{ paddingTop: 'var(--header-h)' }}>
             <Sidebar />
             <main
               className="flex-1 min-w-0"
@@ -33,7 +32,6 @@ export default function App() {
               <div className="page-container">
                 <Routes>
                   <Route path="/"        element={<WardrobePage />} />
-                  <Route path="/outfit"  element={<OutfitsPage />} />
                   <Route path="/tryon"   element={<TryOnPage />} />
                   <Route path="*"        element={<Navigate to="/" replace />} />
                 </Routes>

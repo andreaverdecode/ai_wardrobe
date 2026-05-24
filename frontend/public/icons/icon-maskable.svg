@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <!-- Full bleed background (no rounded corners — OS applies the shape) -->
+  <rect width="512" height="512" fill="#111111"/>
+  <!-- Letter A within the 80% safe zone (51px padding each side) -->
+  <!-- Vertices: top (256,112), bottom-left (144,400), bottom-right (368,400) -->
+  <path d="M144 400 L256 112 L368 400"
+    fill="none" stroke="white" stroke-width="48"
+    stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Crossbar at ~57% height (y=268) -->
+  <!-- Left x at y=268: 144+(256-144)*(400-268)/(400-112) = 144+112*132/288 = 144+51.3 = 195 -->
+  <!-- Right x at y=268: 256+(368-256)*132/288 = 256+51.3 = 307 -->
+  <line x1="195" y1="268" x2="317" y2="268"
+    stroke="white" stroke-width="44" stroke-linecap="round"/>
+</svg>

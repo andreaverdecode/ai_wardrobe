@@ -1,11 +1,10 @@
 import { NavLink } from 'react-router-dom'
-import { Shirt, Layers, Camera } from 'lucide-react'
+import { Shirt, Camera } from 'lucide-react'
 import clsx from 'clsx'
 
 const NAV_ITEMS = [
-  { to: '/',       icon: Shirt,  label: 'Armadio',  description: 'I tuoi vestiti' },
-  { to: '/outfit', icon: Layers, label: 'Outfit',   description: 'Combinazioni AI' },
-  { to: '/tryon',  icon: Camera, label: 'Try-On',   description: 'Prova virtuale' },
+  { to: '/',      icon: Shirt,  label: 'Armadio', description: 'I tuoi vestiti'       },
+  { to: '/tryon', icon: Camera, label: 'Try-On',  description: 'Outfit & look generati' },
 ]
 
 /**
@@ -15,7 +14,7 @@ export default function Sidebar() {
   return (
     <aside
       className="hidden lg:flex flex-col shrink-0 bg-white border-r border-brand-200"
-      style={{ width: 'var(--sidebar-width)', minHeight: 'calc(100vh - var(--header-height))' }}
+      style={{ width: 'var(--sidebar-width)', minHeight: 'calc(100vh - var(--header-h))' }}
     >
       <nav className="flex flex-col gap-1 p-3 pt-4">
         {NAV_ITEMS.map(({ to, icon: Icon, label, description }) => (

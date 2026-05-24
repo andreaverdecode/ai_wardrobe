@@ -100,7 +100,8 @@ export function useWardrobe() {
     activeFilterCount,
 
     uploadProgress,
-    upload:    uploadMutation.mutate,
+    upload:      uploadMutation.mutate,
+    resetUpload: uploadMutation.reset,
     isUploading: uploadMutation.isPending,
     uploadError: uploadMutation.error,
     uploadedItem: uploadMutation.data,

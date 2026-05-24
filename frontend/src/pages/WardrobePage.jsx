@@ -58,6 +58,7 @@ export default function WardrobePage() {
     resetFilters,
     activeFilterCount,
     upload,
+    resetUpload,
     isUploading,
     uploadProgress,
     uploadedItem,
@@ -220,7 +221,7 @@ export default function WardrobePage() {
       {/* Upload modal */}
       <UploadModal
         open={uploadOpen}
-        onClose={() => setUploadOpen(false)}
+        onClose={() => { setUploadOpen(false); resetUpload() }}
         onUpload={upload}
         isUploading={isUploading}
         uploadProgress={uploadProgress}
